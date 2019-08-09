@@ -2,6 +2,7 @@
 // 如需允许多个提交同时发出。则需要在请求配置config中增加 neverCancel 属性，并设置为true
 
 import axios from 'axios';
+import Qs from 'qs';
 // import store from '../store/index';
 // import { getSessionId } from '@/utils/auth';
 
@@ -48,6 +49,12 @@ service.interceptors.request.use((config: any) => {
     //   if (store.getters.sessionId) {
     //     config.headers['X-SessionId'] = getSessionId(); // 让每个请求携带token--['X-Token']为自定义key
     //   }
+
+    if (config.method === 'post') {
+        if (config.data) {
+            config.data = Qs.stringify(config.data)
+        }
+    }
     return config;
 }, (error: any) => {
     Promise.reject(error);

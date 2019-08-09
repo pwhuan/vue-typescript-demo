@@ -17,7 +17,11 @@ import { State } from "vuex-class";
 export default class HelloWorld extends Vue {
   @State HelloWorld: any;
   mounted() {
-    this.$store.dispatch('getAllGoodsListAct');
+    let params = {
+      pageNum: 1
+    };
+
+    this.$store.dispatch("getAllGoodsListAct", params);
   }
   addFun() {
     this.$store.dispatch("addFun");
