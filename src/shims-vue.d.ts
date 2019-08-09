@@ -3,4 +3,7 @@ declare module '*.vue' {
   export default Vue;
 }
 
-
+declare module 'ant-design-vue' {
+  const Ant: any
+  export default Ant;
+}

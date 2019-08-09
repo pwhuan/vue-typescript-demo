@@ -1,4 +1,5 @@
-const path = require('path')
+const path = require('path');
+const webpack = require('webpack');
 
 const resolve = dir => {
     return path.join(__dirname, dir)
@@ -18,7 +19,7 @@ module.exports = {
         // 配置路径别名
         config.resolve.alias
             .set('@', resolve('src'))
-            .set('_c', resolve('src/components'))
+            .set('_c', resolve('src/components'));
     },
     css: {
         modules: false, // 启用 CSS modules
