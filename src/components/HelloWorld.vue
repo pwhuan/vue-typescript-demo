@@ -17,6 +17,7 @@ import { State } from "vuex-class";
 export default class HelloWorld extends Vue {
   @State HelloWorld: any;
   mounted() {
+    this.$store.dispatch('getAllGoodsListAct');
   }
   addFun() {
     this.$store.dispatch("addFun");

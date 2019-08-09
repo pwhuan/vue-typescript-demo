@@ -1,4 +1,7 @@
 import { GetterTree, MutationTree, ActionTree } from 'vuex';
+import * as apiMain from '@/api/apiMain';
+import QS from 'QS';
+console.log(apiMain);
 
 const state: HelleWorldData = {
     count: 0
@@ -18,6 +21,13 @@ const mutations: MutationTree<HelleWorldData> = {
     },
     reduction: (state) => {
         state.count = state.count - 1;
+    },
+    getAllGoodsList() {
+        let params = {
+            pageNum: 1
+        };
+        let allGoodsList = apiMain.getAllGoodsList(QS.stringify(params));
+        console.log(allGoodsList);
     }
 };
 
@@ -27,6 +37,9 @@ const actions: ActionTree<HelleWorldData, any> = {
     },
     reductionFun(context) {
         context.commit("reduction");
+    },
+    getAllGoodsListAct(context) {
+        context.commit("getAllGoodsList");
     }
 };
 
