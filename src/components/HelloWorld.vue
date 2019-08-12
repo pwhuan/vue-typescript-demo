@@ -12,6 +12,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { State } from "vuex-class";
+import { MenuItems } from "@/utils/SiderItem";
 
 @Component
 export default class HelloWorld extends Vue {
@@ -20,7 +21,7 @@ export default class HelloWorld extends Vue {
     let params = {
       pageNum: 1
     };
-
+    console.log(MenuItems.menuItems);
     this.$store.dispatch("getAllGoodsListAct", params);
   }
   addFun() {

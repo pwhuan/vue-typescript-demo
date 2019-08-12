@@ -29,6 +29,8 @@
     "no-shadowed-variable": false,
     "member-ordering": false,
     "semicolon": false,
+    "array-type": false,
+    "max-classes-per-file": 10,
     "quotemark": [
       false,
       "single"
