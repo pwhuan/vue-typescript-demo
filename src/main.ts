@@ -3,8 +3,8 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import 'ant-design-vue/dist/antd.css';
-// import qs from 'QS';
-// Vue.prototype.QS = qs;
+import qs from 'qs';
+Vue.prototype.QS = qs;
 
 import Antd from 'ant-design-vue';
 Vue.use(Antd);
@@ -13,9 +13,9 @@ import moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('zhCN');
 
+Vue.prototype.$moment = moment;
+
 Vue.config.productionTip = false;
-
-
 
 new Vue({
   router,
@@ -26,9 +26,10 @@ new Vue({
 
 
 
-// declare module 'vue/types/vue' {
-//   interface Vue {
-//     QS: any
-//   }
-// }
+declare module 'vue/types/vue' {
+  interface Vue {
+    QS: any,
+    $moment: any
+  }
+}
 

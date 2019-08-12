@@ -1,17 +1,30 @@
 <template>
   <div class="about">
     <h1>vue.ant.design Dome</h1>
-
-      <a-time-picker use12Hours @change="onChange" />
-       <a-month-picker @change="onChange" placeholder="Select month" />
-    <a-date-picker  key="en" />
+    <a-date-picker @change="onChange" :defaultValue="defaultValue" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { Moment } from "moment";
+@Component({})
 export default class About extends Vue {
-  onChange() {}
+  data() {
+    return { defaultValue: this.$moment() };
+  }
+  onChange(event: Moment, dateString: string) {
+    console.log(event);
+  }
 }
 </script>
+
+
+<style lang="less">
+.about {
+  display: block;
+  position: relative;
+}
+</style>
+
 

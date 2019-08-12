@@ -28,7 +28,7 @@ module.exports = {
         loaderOptions: {} // css预设器配置项
     },
     devServer: {
-        port: 0809, // 端口
+        port: 8080, // 端口
         // proxy: 'http://tiangou.com' // 设置代理
     },
 }

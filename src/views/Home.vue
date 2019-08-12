@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    {{count}}
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld />
   </div>
