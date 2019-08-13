@@ -21,8 +21,10 @@ export class MenuItem {
 export class MenuItems {
     static menuItems = [
         new MenuItem('导航1', '', 'home', '/home'),
-        new MenuItem('导航2', '', 'about', '/about'),
-        new MenuItem('导航3', '', 'aboutaa', '/about/aboutaa'),
+        new MenuItem('导航2', '', 'about', '/about', [
+            new MenuItem('导航3', '', 'aboutaa', '/about/aboutaa'),
+        ]),
+
         // new MenuItem('导航4', 'Pages.Roles', 'local_offer', '/app/roles'),
         // new MenuItem('导航5', '', 'info', '/app/about'),
         // new MenuItem('导航6', '', 'menu', '导航6', [
@@ -39,5 +41,5 @@ export class MenuItems {
         //     new MenuItem('子导航6', '', '', '')
         // ])
     ];
-    
+
 }

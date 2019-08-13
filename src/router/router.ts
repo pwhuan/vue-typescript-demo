@@ -1,3 +1,4 @@
+import About from "@/views/About.vue";
 export default [
   {
     path: '/home',
@@ -12,7 +13,7 @@ export default [
   {
     path: '/about',
     name: 'about',
-    component: () => import('@/views/About.vue'),
+    component: About,
     meta: {
       icon: '',
       keepAlive: true,
@@ -20,7 +21,7 @@ export default [
     },
     children: [
       {
-        path: '/aboutaa',
+        path: 'aboutaa',
         name: 'aboutaa',
         component: () => import('@/views/Aboutaa.vue'),
         meta: {
