@@ -31,6 +31,8 @@
     "member-ordering": false,
     "semicolon": false,
     "array-type": false,
+    "comment-format": false,
+    "curly": false,
     "max-classes-per-file": 10,
     "quotemark": [
       false,

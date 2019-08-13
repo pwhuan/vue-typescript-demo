@@ -1,8 +1,6 @@
 <template>
   <div class="about">
-    <h1>vue.ant.design Dome</h1>
-    <a-date-picker @change="onChange" :defaultValue="defaultValue" />
-     <router-view></router-view>
+    <h1>AboutaaAboutaaAboutaaAboutaaAboutaa</h1>
   </div>
 </template>
 
@@ -10,7 +8,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import { Moment } from "moment";
 @Component({})
-export default class About extends Vue {
+export default class Aboutaa extends Vue {
   data() {
     return { defaultValue: this.$moment() };
   }

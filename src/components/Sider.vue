@@ -2,21 +2,21 @@
   <div class="Sider">
     <a-menu @click="handleClick" style="width: 256px" :defaultSelectedKeys="['1']" :openKeys.sync="openKeys" mode="inline">
       <template v-for="item in menuItems">
-        <a-menu-item :key="item.name" v-if="item.items.length == 0">
-            <!-- 一级菜单 -->
+        <a-menu-item :key="item.name" :value="item.route" v-if="item.items.length == 0">
+          <!-- 一级菜单 -->
           <a-icon type="appstore" /><span>{{item.name}}</span></a-menu-item>
-        <a-sub-menu :key="item.name" @titleClick="titleClick" v-if="item.items.length > 0">
-            <!-- 二级菜单 -->
+        <a-sub-menu :key="item.name" :value="item.route" @titleClick="titleClick" v-if="item.items.length > 0">
+          <!-- 二级菜单 -->
           <span slot="title">
             <a-icon type="appstore" /><span>{{item.name}}</span></span>
           <template v-for="subItem in item.items">
-            <a-menu-item :key="subItem.name" v-if="subItem.items.length == 0">{{subItem.name}}</a-menu-item>
-            <a-sub-menu :key="subItem.name" @titleClick="titleClick" v-if="subItem.items.length > 0">
-                <!-- 三级菜单 -->
+            <a-menu-item :key="subItem.name" :value="subItem.route" v-if="subItem.items.length == 0">{{subItem.name}}</a-menu-item>
+            <a-sub-menu :key="subItem.name" :value="subItem.route" @titleClick="titleClick" v-if="subItem.items.length > 0">
+              <!-- 三级菜单 -->
               <span slot="title">
                 <a-icon type="appstore" /><span>{{item.name}}</span></span>
               <template v-for="samllItem in subItem.items">
-                <a-menu-item :key="samllItem.name">{{samllItem.name}}</a-menu-item>
+                <a-menu-item :key="samllItem.name" :value="samllItem.route">{{samllItem.name}}</a-menu-item>
               </template>
             </a-sub-menu>
           </template>
@@ -37,13 +37,15 @@ export default class Sider extends Vue {
   current = ["mail"];
 
   mounted() {
-    console.log(this.menuItems);
   }
   handleClick(e: any) {
-    console.log("click", e);
+    if (e.item.value &&  e.item.value !== this.$route.path) {
+      this.$router.push({
+        path: e.item.value
+      });
+    }
   }
   titleClick(e: any) {
-    console.log("titleClick", e);
   }
 }
 </script>

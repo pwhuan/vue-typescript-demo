@@ -1,6 +1,5 @@
 import { GetterTree, MutationTree, ActionTree } from 'vuex';
 import * as apiMain from '@/api/apiMain';
-console.log(apiMain);
 
 const state: HelleWorldData = {
     count: 0
@@ -24,7 +23,6 @@ const mutations: MutationTree<HelleWorldData> = {
     getAllGoodsList(state, params) {
 
         let allGoodsList = apiMain.getAllGoodsList(params);
-        console.log(allGoodsList);
     }
 };
 

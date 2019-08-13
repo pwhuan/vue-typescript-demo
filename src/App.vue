@@ -6,6 +6,7 @@
         <Sider></Sider>
       </div>
       <div class="content">
+        <Breadcrumb></Breadcrumb>
         <router-view />
       </div>
     </div>
@@ -15,10 +16,12 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Sider from "@/components/Sider.vue"; // @ is an alias to /src
+import Sider from "@/components/Sider.vue"; 
+import Breadcrumb from "@/components/Breadcrumb.vue"; 
 @Component({
   components: {
-    Sider
+    Sider,
+    Breadcrumb
   }
 })
 export default class Home extends Vue {}
