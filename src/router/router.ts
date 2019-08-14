@@ -1,36 +1,43 @@
 import About from "@/views/About.vue";
 export default [
-  {
-    path: '/home',
-    name: 'home',
-    component: () => import('@/views/Home.vue'),
-    meta: {
-      icon: '',
-      keepAlive: true,
-      title: 'home'
-    }
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: About,
-    meta: {
-      icon: '',
-      keepAlive: true,
-      title: 'about'
-    },
-    children: [
-      {
-        path: 'aboutaa',
-        name: 'aboutaa',
-        component: () => import('@/views/Aboutaa.vue'),
+    {
+        path: '',
+        component: () => import('@/views/Home.vue'),
         meta: {
-          icon: '',
-          keepAlive: true,
-          title: 'aboutaa'
+            icon: '',
+            keepAlive: true,
+            title: '首页'
         }
-      }
-    ]
-  }
+    },
+    {
+        path: '/home',
+        component: () => import('@/views/Home.vue'),
+        meta: {
+            icon: '',
+            keepAlive: true,
+            title: '首页'
+        }
+    },
+    {
+        path: '/about',
+        component: About,
+        meta: {
+            icon: '',
+            isDisable: true,
+            keepAlive: true,
+            title: '关于我们'
+        },
+        children: [
+            {
+                path: 'abouta',
+                component: () => import('@/views/Abouta.vue'),
+                meta: {
+                    icon: '',
+                    keepAlive: true,
+                    title: '关于我们列表'
+                }
+            }
+        ]
+    }
 ]
 

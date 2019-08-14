@@ -33,7 +33,12 @@
     "array-type": false,
     "comment-format": false,
     "curly": false,
+    "eslint-plugin-vue": false,
+    "disable-next-line": false,
     "max-classes-per-file": 10,
+    "max-line-length": 320,
+    "noImplicitAny": false,
+    "strict": false,
     "quotemark": [
       false,
       "single"

@@ -1,6 +1,6 @@
 <template>
   <div class="Sider">
-    <a-menu @click="handleClick" style="width: 256px" :defaultSelectedKeys="['1']" :openKeys.sync="openKeys" mode="inline">
+    <a-menu @click="handleClick" style="width: 256px" :selectedKeys="defaultSelectedKeys" :openKeys.sync="openKeys" mode="inline">
       <template v-for="item in menuItems">
         <a-menu-item :key="item.name" :value="item.route" v-if="item.items.length == 0">
           <!-- 一级菜单 -->
@@ -28,25 +28,36 @@
 
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Watch } from "vue-property-decorator";
 import { MenuItems } from "@/utils/SiderItem";
 @Component({})
 export default class Sider extends Vue {
   menuItems = MenuItems.menuItems;
-  openKeys = ["sub2", "sub3"];
-  current = ["mail"];
+  openKeys = ["首页"];
+  defaultSelectedKeys = ["首页"];
 
   mounted() {
+    console.log(this.$router);
+  }
+
+  @Watch("$route")
+  watchCount(to: any, from: any) {
+    this.defaultSelectedKeys = [];
+    to.matched.map((s: any) => {
+      if (this.openKeys.indexOf(s.meta.title) < 0) {
+        this.openKeys.push(s.meta.title);
+      }
+      this.defaultSelectedKeys.push(s.meta.title);
+    });
   }
   handleClick(e: any) {
-    if (e.item.value &&  e.item.value !== this.$route.path) {
+    if (e.item.value && e.item.value !== this.$route.path) {
       this.$router.push({
         path: e.item.value
       });
     }
   }
-  titleClick(e: any) {
-  }
+  titleClick(e: any) {}
 }
 </script>
 

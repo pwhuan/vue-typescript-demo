@@ -20,9 +20,9 @@ export class MenuItem {
 
 export class MenuItems {
     static menuItems = [
-        new MenuItem('导航1', '', 'home', '/home'),
-        new MenuItem('导航2', '', 'about', '/about', [
-            new MenuItem('导航3', '', 'aboutaa', '/about/aboutaa'),
+        new MenuItem('首页', '', 'home', '/home'),
+        new MenuItem('关于我们', '', 'about', '', [
+            new MenuItem('关于我们列表', '', 'abouta', '/about/abouta'),
         ]),
 
         // new MenuItem('导航4', 'Pages.Roles', 'local_offer', '/app/roles'),

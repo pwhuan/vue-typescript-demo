@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import routes from './router'
+const self = this;
 
 Vue.use(Router)
 
@@ -14,6 +15,7 @@ const LOGIN_PAGE_NAME = 'login'
 
 // 跳转之前
 router.beforeEach((to: any, from: any, next: any) => {
+    console.log(self)
     next();
     //   const token = getToken()
     //   if (!token && to.name !== LOGIN_PAGE_NAME) {

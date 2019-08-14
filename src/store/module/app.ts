@@ -1,34 +1,35 @@
 import { GetterTree, MutationTree, ActionTree } from 'vuex';
-import * as apiMain from '@/api/apiMain';
-import { MenuItem } from '@/utils/SiderItem';
-console.log(apiMain);
 
-const menus: MenuItem = {
-    name : '',
-    permissionName: '',
-    icon: '',
-    route: '',
-    items: []
-};
+const breadcrumb: Breadcrumbs[] = [];
 
 // 强制使用getter获取state
-const getters: GetterTree<MenuItem, any> = {
+const getters: GetterTree<Breadcrumbs, any> = {
 
 };
 
 // 更改state
-const mutations: MutationTree<MenuItem> = {
-
+const mutations: MutationTree<Breadcrumbs> = {
+    routeChange: (state, params) => {
+        console.log(state, params);
+        // breadcrumb.push();
+    },
 };
 
-const actions: ActionTree<MenuItem, any> = {
-
+const actions: ActionTree<Breadcrumbs, any> = {
+    routeChangeAction(context, params) {
+        context.commit("routeChange", params);
+    },
 };
 
 
 export default {
-    menus,
+    breadcrumb,
     getters,
     mutations,
     actions
 };
+
+interface Breadcrumbs {
+    name: string,
+    route: string
+}

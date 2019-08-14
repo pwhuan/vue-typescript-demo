@@ -5,9 +5,13 @@
       <div class="sider">
         <Sider></Sider>
       </div>
-      <div class="content">
+
+      <div class="router-view-breadcrumb">
         <Breadcrumb></Breadcrumb>
-        <router-view />
+        <div class="router-view-content">
+          <router-view />
+        </div>
+
       </div>
     </div>
 
@@ -16,8 +20,8 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Sider from "@/components/Sider.vue"; 
-import Breadcrumb from "@/components/Breadcrumb.vue"; 
+import Sider from "@/components/Sider.vue";
+import Breadcrumb from "@/components/Breadcrumb.vue";
 @Component({
   components: {
     Sider,
@@ -48,12 +52,17 @@ export default class Home extends Vue {}
       min-height: calc(~"100vh - 70px");
       box-shadow: 0px 2px 8px 0px rgba(0, 20, 85, 0.12);
     }
-    .content {
+    .router-view-breadcrumb {
       flex: 1;
-      margin: 15px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0px 2px 8px 0px rgba(0, 20, 85, 0.12);
+      padding: 5px 15px 15px 15px;
+      box-sizing: border-box;
+      min-height: calc(~"100vh - 70px");
+      .router-view-content {
+        margin-top: 5px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0px 2px 8px 0px rgba(0, 20, 85, 0.12);
+      }
     }
   }
 }
