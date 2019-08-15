@@ -36,6 +36,15 @@ export default [
                     keepAlive: true,
                     title: '关于我们列表'
                 }
+            },
+            {
+                path: 'abouta/aboutaa',
+                component: () => import('@/views/Aboutaa.vue'),
+                meta: {
+                    icon: '',
+                    keepAlive: true,
+                    title: '关于我们详情'
+                }
             }
         ]
     }

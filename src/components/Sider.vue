@@ -8,7 +8,7 @@
         <a-sub-menu :key="item.name" :value="item.route" @titleClick="titleClick" v-if="item.items.length > 0">
           <!-- 二级菜单 -->
           <span slot="title">
-            <a-icon type="appstore" /><span>{{item.name}}</span></span>
+            <a-icon type="appstore" /><span>{{item.name}}</span></span> 
           <template v-for="subItem in item.items">
             <a-menu-item :key="subItem.name" :value="subItem.route" v-if="subItem.items.length == 0">{{subItem.name}}</a-menu-item>
             <a-sub-menu :key="subItem.name" :value="subItem.route" @titleClick="titleClick" v-if="subItem.items.length > 0">

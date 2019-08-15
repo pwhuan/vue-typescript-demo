@@ -29,6 +29,12 @@ export default class HelloWorld extends Vue {
   }
 }
 </script>
-
+<style lang="less">
+  button{
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+  }
+</style>
 
 

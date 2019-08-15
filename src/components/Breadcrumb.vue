@@ -23,6 +23,7 @@ export default Vue.extend({
   },
   watch: {
     $route(to, from) {
+      console.log(to);
       this.routers = to.matched;
     }
   }
