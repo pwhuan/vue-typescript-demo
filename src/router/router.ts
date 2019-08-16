@@ -43,7 +43,8 @@ export default [
                 meta: {
                     icon: '',
                     keepAlive: true,
-                    title: '关于我们详情'
+                    title: '关于我们详情',
+                    select: '关于我们列表'
                 }
             }
         ]

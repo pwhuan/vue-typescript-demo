@@ -1,20 +1,10 @@
 <template>
   <div class="about">
+    <h1>关于列表</h1>
     <h1>AboutaaAboutaaAboutaaAboutaaAboutaa</h1>
-    <h1>AboutaaAboutaaAboutaaAboutaaAboutaa</h1>
-    <h1>AboutaaAboutaaAboutaaAboutaaAboutaa</h1>
-    <h1>AboutaaAboutaaAboutaaAboutaaAboutaa</h1>
-    <h1>AboutaaAboutaaAboutaaAboutaaAboutaa</h1>
-    <h1>AboutaaAboutaaAboutaaAboutaaAboutaa</h1>
-    <h1>AboutaaAboutaaAboutaaAboutaaAboutaa</h1>
-    <h1>AboutaaAboutaaAboutaaAboutaaAboutaa</h1>
-    <h1>AboutaaAboutaaAboutaaAboutaaAboutaa</h1>
-    <h1>AboutaaAboutaaAboutaaAboutaaAboutaa</h1>
-    <h1>AboutaaAboutaaAboutaaAboutaaAboutaa</h1>
-    <h1>AboutaaAboutaaAboutaaAboutaaAboutaa</h1>
-    <h1>AboutaaAboutaaAboutaaAboutaaAboutaa</h1>
-    <h1>AboutaaAboutaaAboutaaAboutaaAboutaa</h1>
-    <h1>AboutaaAboutaaAboutaaAboutaaAboutaa</h1>
+    <router-link :to="'/about/abouta/aboutaa'">
+      去详情
+    </router-link>
   </div>
 </template>
 
@@ -35,7 +25,7 @@ export default class Aboutaa extends Vue {
 .about {
   display: block;
   position: relative;
-  h1{
+  h1 {
     margin: 0;
   }
 }

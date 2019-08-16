@@ -1,8 +1,8 @@
 <template>
   <div class="about">
-    <h1>vue.ant.design Dome</h1>
-    <a-date-picker @change="onChange" :defaultValue="defaultValue" />
-     <router-view></router-view>
+    <!-- <h1>vue.ant.design Dome</h1>
+    <a-date-picker @change="onChange" :defaultValue="defaultValue" /> -->
+    <router-view />
   </div>
 </template>
 
@@ -14,8 +14,7 @@ export default class About extends Vue {
   data() {
     return { defaultValue: this.$moment() };
   }
-  onChange(event: Moment, dateString: string) {
-  }
+  onChange(event: Moment, dateString: string) {}
 }
 </script>
 

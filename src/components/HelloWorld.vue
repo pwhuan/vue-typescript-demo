@@ -12,6 +12,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import { State } from "vuex-class";
 
+
 @Component
 export default class HelloWorld extends Vue {
   @State HelloWorld: any;
