@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <div class="container">
+    <div class="container" v-if="$route.meta.hideMenu">
+      <router-view />
+    </div>
+
+    <div class="container" v-if="!$route.meta.hideMenu">
       <div class="header"></div>
       <div class="sider">
         <Sider></Sider>
@@ -9,9 +13,11 @@
       <div class="router-view-breadcrumb">
         <Breadcrumb></Breadcrumb>
         <div class="router-view-content">
-          <router-view />
+          <keep-alive>
+            <router-view v-if="$route.meta.keepAlive" />
+          </keep-alive>
+          <router-view v-if="!$route.meta.keepAlive" />
         </div>
-
       </div>
     </div>
 

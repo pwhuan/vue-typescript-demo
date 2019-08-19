@@ -1,5 +1,16 @@
 import About from "@/views/About.vue";
 export default [
+
+    {
+        path: '/login',
+        name: "login",
+        component: () => import('@/views/account/login.vue'),
+        meta: {
+            icon: '',
+            hideMenu: true,
+            title: '登录'
+        }
+    },
     {
         path: '',
         component: () => import('@/views/Home.vue'),
@@ -11,6 +22,7 @@ export default [
     },
     {
         path: '/home',
+        name: "home",
         component: () => import('@/views/Home.vue'),
         meta: {
             icon: '',
@@ -20,6 +32,7 @@ export default [
     },
     {
         path: '/about',
+        name: "about",
         component: About,
         meta: {
             icon: '',
@@ -30,6 +43,7 @@ export default [
         children: [
             {
                 path: 'abouta',
+                name: "abouta",
                 component: () => import('@/views/Abouta.vue'),
                 meta: {
                     icon: '',
@@ -39,6 +53,7 @@ export default [
             },
             {
                 path: 'abouta/aboutaa',
+                name: "aboutaa",
                 component: () => import('@/views/Aboutaa.vue'),
                 meta: {
                     icon: '',
@@ -51,6 +66,7 @@ export default [
     },
     {
         path: '/permissions',
+        name: "permissions",
         component: () => import('@/views/permissions/permissions.vue'),
         meta: {
             icon: '',
@@ -61,6 +77,7 @@ export default [
         children: [
             {
                 path: 'edit-permissions',
+                name: "edit-permissions",
                 component: () => import('@/views/permissions/edit-permissions.vue'),
                 meta: {
                     icon: '',
