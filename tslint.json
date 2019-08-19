@@ -36,7 +36,7 @@
     "eslint-plugin-vue": false,
     "disable-next-line": false,
     "max-classes-per-file": 10,
-    "max-line-length": 320,
+    "max-line-length": 180,
     "noImplicitAny": false,
     "strict": false,
     "quotemark": [

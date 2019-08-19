@@ -48,6 +48,28 @@ export default [
                 }
             }
         ]
+    },
+    {
+        path: '/permissions',
+        component: () => import('@/views/permissions/permissions.vue'),
+        meta: {
+            icon: '',
+            isDisable: true,
+            keepAlive: true,
+            title: '权限管理'
+        },
+        children: [
+            {
+                path: 'edit-permissions',
+                component: () => import('@/views/permissions/edit-permissions.vue'),
+                meta: {
+                    icon: '',
+                    keepAlive: true,
+                    title: '编辑权限'
+                }
+            }
+        ]
     }
+
 ]
 

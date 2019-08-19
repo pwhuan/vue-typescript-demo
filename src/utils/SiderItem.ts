@@ -24,7 +24,9 @@ export class MenuItems {
         new MenuItem('关于我们', '', 'about', '', [
             new MenuItem('关于我们列表', '', 'abouta', '/about/abouta'),
         ]),
-
+        new MenuItem('权限管理', '', 'permissions', '', [
+            new MenuItem('编辑权限', '', 'edit-permissions', '/permissions/edit-permissions'),
+        ]),
         // new MenuItem('导航4', 'Pages.Roles', 'local_offer', '/app/roles'),
         // new MenuItem('导航5', '', 'info', '/app/about'),
         // new MenuItem('导航6', '', 'menu', '导航6', [
