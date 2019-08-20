@@ -1,4 +1,4 @@
-<template>
+yarn <template>
   <div class="about">
     <!-- <h1>vue.ant.design Dome</h1>
     <a-date-picker @change="onChange" :defaultValue="defaultValue" /> -->

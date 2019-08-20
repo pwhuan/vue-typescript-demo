@@ -12,7 +12,12 @@ export default class Aboutaa extends Vue {
   data() {
     return { defaultValue: this.$moment() };
   }
-  onChange(event: Moment, dateString: string) {}
+  mounted() {
+    let params = {
+      pageNum: 1
+    };
+    this.$store.dispatch("getAllGoodsListAct", params);
+  }
 }
 </script>
 
@@ -21,7 +26,7 @@ export default class Aboutaa extends Vue {
 .about {
   display: block;
   position: relative;
-  h1{
+  h1 {
     margin: 0;
   }
 }

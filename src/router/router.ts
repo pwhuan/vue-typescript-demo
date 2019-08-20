@@ -86,7 +86,17 @@ export default [
                 }
             }
         ]
-    }
+    },
+    {
+        path: '/vueLazyload',
+        name: "vueLazyload",
+        component: () => import('@/views/VueLazyload/VueLazyload.vue'),
+        meta: {
+            icon: '',
+            keepAlive: true,
+            title: '图片懒加载'
+        }
+    },
 
 ]
 
