@@ -48,7 +48,7 @@ export default [
                 meta: {
                     icon: '',
                     keepAlive: true,
-                    title: '关于我们列表'
+                    title: '关于我们列表',
                 }
             },
             {
@@ -58,8 +58,7 @@ export default [
                 meta: {
                     icon: '',
                     keepAlive: true,
-                    title: '关于我们详情',
-                    select: '关于我们列表'
+                    title: '舔狗爱吃屎',
                 }
             }
         ]

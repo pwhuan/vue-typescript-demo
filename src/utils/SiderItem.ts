@@ -23,6 +23,7 @@ export class MenuItems {
         new MenuItem('首页', 'home', 'home', '/home'),
         new MenuItem('关于我们', 'about', 'about', '', [
             new MenuItem('关于我们列表', 'abouta', 'abouta', '/about/abouta'),
+            new MenuItem('舔狗爱吃屎', 'bbbbbbb', 'bbbbbbb', '/about/abouta/aboutaa'),
         ]),
         new MenuItem('权限管理', 'permissions', 'permissions', '', [
             new MenuItem('编辑权限', 'edit-permissions', 'edit-permissions', '/permissions/edit-permissions'),

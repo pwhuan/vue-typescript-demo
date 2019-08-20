@@ -33,12 +33,15 @@ import { MenuItems } from "@/utils/SiderItem";
 export default Vue.extend({
   data() {
     return {
-      menuItems: MenuItems.menuItems,
+      menuItems: [],
       defaultSelectedKeys: ["首页"],
-      openKeys: ["首页"]
+      openKeys: ["首页"],
+      permissions: ["home", "edit-permissions","bbbbbbb"]
     };
   },
   mounted() {
+    let menus = JSON.parse(JSON.stringify(MenuItems.menuItems));
+    this.menuItems = this.filterMenusDisable(this.getMenus(menus));
     this.openKeys = [];
   },
   watch: {
@@ -54,6 +57,34 @@ export default Vue.extend({
     }
   },
   methods: {
+    filterMenusDisable(menus: any) {
+      let _subMenus = menus;
+      _subMenus = _subMenus.filter(
+        (f: any) => f.route != "" || f.items.length > 0
+      );
+      _subMenus.map((s: any) => {
+        if (s.items.length > 0) {
+          s.items = this.filterMenusDisable(s.items);
+        }
+      });
+      return _subMenus;
+    },
+    filterMenus(menus: any) {
+      menus = menus.filter(
+        (f: any) =>
+          this.permissions.indexOf(f.permissionName) >= 0 || f.items.length > 0
+      );
+      return menus;
+    },
+    getMenus(subMenus: any) {
+      let _subMenus = this.filterMenus(subMenus);
+      _subMenus.map((s: any) => {
+        if (s.items.length > 0) {
+          s.items = this.getMenus(s.items);
+        }
+      });
+      return _subMenus;
+    },
     handleClick(e: any) {
       if (e.item.value && e.item.value !== this.$route.path) {
         this.$router.push({
