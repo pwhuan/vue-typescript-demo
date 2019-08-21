@@ -17,6 +17,12 @@ Vue.prototype.$moment = moment;
 
 Vue.config.productionTip = false;
 
+import VueLazyLoad from 'vue-lazyload'
+Vue.use(VueLazyLoad, {
+  error: require('./assets/21.jpg'),
+  loading: require('./assets/1.gif')
+})
+
 new Vue({
   router,
   store,

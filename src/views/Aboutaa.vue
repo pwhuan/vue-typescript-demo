@@ -13,10 +13,7 @@ export default class Aboutaa extends Vue {
     return { defaultValue: this.$moment() };
   }
   mounted() {
-    let params = {
-      pageNum: 1
-    };
-    this.$store.dispatch("getAllGoodsListAct", params);
+   
   }
 }
 </script>

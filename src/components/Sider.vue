@@ -36,7 +36,7 @@ export default Vue.extend({
       menuItems: [],
       defaultSelectedKeys: ["首页"],
       openKeys: ["首页"],
-      permissions: ["home", "edit-permissions","bbbbbbb"]
+      permissions: ["home", "edit-permissions","vueLazyload"]
     };
   },
   mounted() {

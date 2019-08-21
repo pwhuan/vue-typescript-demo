@@ -1,12 +1,15 @@
 <template>
   <div class="VueLazyload-wrap">
-    {{data.pageName}}
+    <template v-for="img in HelloWorld.allGoodsList">
+      <img :key="img.goods_code" v-lazy="img.icon_url">
+    </template>
+
   </div>
 </template>
 
 <script lang="ts" src="./VueLazyload.ts"></script>
 
 <style lang="less">
-  @import './VueLazyload.less';
+@import "./VueLazyload.less";
 </style>
 

@@ -2,7 +2,8 @@ import { GetterTree, MutationTree, ActionTree } from 'vuex';
 import * as apiMain from '@/api/apiMain';
 
 const state: HelleWorldData = {
-    count: 0
+    count: 0,
+    allGoodsList: {}
 };
 
 // 强制使用getter获取state
@@ -20,9 +21,9 @@ const mutations: MutationTree<HelleWorldData> = {
     reduction: (state) => {
         state.count = state.count - 1;
     },
-    getAllGoodsList(state, params) {
-
-        let allGoodsList = apiMain.getAllGoodsList(params);
+    async getAllGoodsList(state, params) {
+        let allGoodsList = await apiMain.getAllGoodsList(params);
+        state.allGoodsList = allGoodsList.data.data.list;
     }
 };
 
@@ -39,7 +40,8 @@ const actions: ActionTree<HelleWorldData, any> = {
 };
 
 interface HelleWorldData {
-    count: number
+    count: number,
+    allGoodsList: object
 }
 
 export default {
