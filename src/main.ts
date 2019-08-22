@@ -3,6 +3,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import 'ant-design-vue/dist/antd.css';
+import './assets/common.less';
 import qs from 'qs';
 Vue.prototype.QS = qs;
 
@@ -35,7 +36,7 @@ new Vue({
 declare module 'vue/types/vue' {
   interface Vue {
     QS: any,
-    $moment: any
+    $moment: any,
   }
 }
 

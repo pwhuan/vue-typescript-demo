@@ -1,6 +1,5 @@
 import request from '../utils/request';
-const apiHost = process.env.NODE_ENV === 'production' ? 'https://app.oboe360.com/' : "https://app.oboe360.com/";
-
+const apiHost = process.env.NODE_ENV === 'production' ? 'http://121.40.228.219:8083/speech_manage/' : "http://121.40.228.219:8083/speech_manage/";
 
 export function getAllGoodsList(params: any) {
     return request({
@@ -9,3 +8,12 @@ export function getAllGoodsList(params: any) {
         data: params
     });
 }
+
+export function login(params: any) {
+    return request({
+        url: apiHost + 'sys/login/login',
+        method: 'post',
+        data: params
+    });
+}
+
