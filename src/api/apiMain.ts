@@ -9,11 +9,4 @@ export function getAllGoodsList(params: any) {
     });
 }
 
-export function login(params: any) {
-    return request({
-        url: apiHost + 'sys/login/login',
-        method: 'post',
-        data: params
-    });
-}
 

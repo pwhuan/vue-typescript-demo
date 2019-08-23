@@ -14,6 +14,8 @@ import moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('zhCN');
 
+
+
 Vue.prototype.$moment = moment;
 
 Vue.config.productionTip = false;
@@ -23,6 +25,11 @@ Vue.use(VueLazyLoad, {
   error: require('./assets/21.jpg'),
   loading: require('./assets/1.gif')
 })
+
+import * as apiMain from '@/api/apiMain';
+
+Vue.prototype.$http = apiMain;
+
 
 new Vue({
   router,
@@ -37,6 +44,7 @@ declare module 'vue/types/vue' {
   interface Vue {
     QS: any,
     $moment: any,
+    $http: any
   }
 }
 

@@ -29,8 +29,8 @@ export default class Login extends Vue {
       alert("请输入密码");
       return;
     }
-    let loginAct = await this.$store.dispatch("loginAct", this.loginInput);
-    console.log(loginAct)
+    this.$router.push({ path: "/home" });
+    // this.$message.warning(111)
     // loginAct.then((result: any) => {
     //   console.log(result);
     // });
@@ -41,6 +41,9 @@ export default class Login extends Vue {
 
 <style lang="less">
 .login {
+  position: relative;
+  height: 100vh;
+  width: 100%;
   .login-content {
     width: 400px;
     height: 300px;

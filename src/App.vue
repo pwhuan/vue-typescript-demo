@@ -1,26 +1,29 @@
 <template>
   <div id="app">
-    <div class="container" v-if="$route.meta.hideMenu">
-      <router-view />
-    </div>
-
-    <div class="container" v-if="!$route.meta.hideMenu">
-      <div class="header"></div>
-      <div class="sider">
-        <Sider></Sider>
+    <a-spin :spinning="$store.state.loading" :tip="'努力加载中...'">
+      <div class="container" v-if="$route.meta.hideMenu">
+        <router-view />
       </div>
 
-      <div class="router-view-breadcrumb">
-        <Breadcrumb></Breadcrumb>
-        <div class="router-view-content">
-          <keep-alive>
-            <router-view v-if="$route.meta.keepAlive" />
-          </keep-alive>
-          <router-view v-if="!$route.meta.keepAlive" />
+      <div class="container" v-if="!$route.meta.hideMenu">
+        <div class="header">
+          <Header></Header>
+        </div>
+        <div class="sider">
+          <Sider></Sider>
+        </div>
+
+        <div class="router-view-breadcrumb">
+          <Breadcrumb></Breadcrumb>
+          <div class="router-view-content">
+            <keep-alive>
+              <router-view v-if="$route.meta.keepAlive" />
+            </keep-alive>
+            <router-view v-if="!$route.meta.keepAlive" />
+          </div>
         </div>
       </div>
-    </div>
-
+    </a-spin>
   </div>
 </template>
 
@@ -28,13 +31,17 @@
 import { Component, Vue } from "vue-property-decorator";
 import Sider from "@/components/Sider.vue";
 import Breadcrumb from "@/components/Breadcrumb.vue";
+import Header from "@/components/Header.vue";
 @Component({
   components: {
     Sider,
-    Breadcrumb
+    Breadcrumb,
+    Header
   }
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  
+}
 </script>
 <style lang="less">
 #app {
@@ -69,7 +76,7 @@ export default class Home extends Vue {}
         border-radius: 8px;
         box-shadow: 0px 2px 8px 0px rgba(0, 20, 85, 0.12);
       }
-    }
+    } 
   }
 }
 </style>

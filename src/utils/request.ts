@@ -3,7 +3,9 @@
 
 import axios from 'axios';
 import Qs from 'qs';
-// import store from '../store/index';
+import store from '../store/index';
+import { getToken, setToken } from "@/utils/common";
+import Cookies from 'js-cookie'
 // import { getSessionId } from '@/utils/auth';
 
 /* 防止重复提交，利用axios的cancelToken */
@@ -38,6 +40,7 @@ const service = axios.create({
 
 /* request拦截器 */
 service.interceptors.request.use((config: any) => {
+
     // neverCancel 配置项，允许多个请求
     if (!config.neverCancel) {
         // 生成cancelToken
@@ -45,10 +48,11 @@ service.interceptors.request.use((config: any) => {
             removePending(config, c);
         });
     }
-    // 在这里可以统一修改请求头，例如 加入 用户 token 等操作
-    //   if (store.getters.sessionId) {
-    //     config.headers['X-SessionId'] = getSessionId(); // 让每个请求携带token--['X-Token']为自定义key
-    //   }
+
+    store.state.loading = true;
+    if (getToken()) {
+        config.headers['Token'] = getToken(); 
+    }
 
     if (config.method === 'post') {
         if (config.data) {
@@ -57,6 +61,7 @@ service.interceptors.request.use((config: any) => {
     }
     return config;
 }, (error: any) => {
+    store.state.loading = false;
     Promise.reject(error);
 });
 
@@ -67,13 +72,11 @@ service.interceptors.response.use(
         removePending(response.config);
         // 获取返回数据，并处理。按自己业务需求修改。下面只是个demo
         const res = response.data;
+        store.state.loading = false;
         if (res.code !== 200) {
             if (res.code === 401) {
-                if (location.hash === '#/') {
-                    return res;
-                } else {
-                    location.href = '/#/';
-                }
+                Cookies.remove('token')
+                location.href = '/login';
             }
             return Promise.reject('error');
         } else {

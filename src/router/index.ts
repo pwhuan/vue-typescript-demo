@@ -15,31 +15,30 @@ const LOGIN_PAGE_NAME = 'login'
 
 // 跳转之前
 router.beforeEach((to: any, from: any, next: any) => {
-  const token = getToken()
-  console.log(token)
-  // next()
-  if (!token && to.name !== LOGIN_PAGE_NAME) {
-    // 未登录且要跳转的页面不是登录页
-    next({
-      name: LOGIN_PAGE_NAME // 跳转到登录页
-    })
-  } else if (!token && to.name === LOGIN_PAGE_NAME) {
-    // 未登陆且要跳转的页面是登录页
-    next() // 跳转
-  } else if (token && to.name === LOGIN_PAGE_NAME) {
-    // 已登录且要跳转的页面是登录页
-    next({
-      name: 'home' // 跳转到 home 页
-    })
-  } else {
-    if (token) {
-      next() // 跳转
-    } else {
-      next({
-        name: LOGIN_PAGE_NAME
-      })
-    }
-  }
+  // const token = getToken()
+  next()
+  // if (!token && to.name !== LOGIN_PAGE_NAME) {
+  //   // 未登录且要跳转的页面不是登录页
+  //   next({
+  //     name: LOGIN_PAGE_NAME // 跳转到登录页
+  //   })
+  // } else if (!token && to.name === LOGIN_PAGE_NAME) {
+  //   // 未登陆且要跳转的页面是登录页
+  //   next() // 跳转
+  // } else if (token && to.name === LOGIN_PAGE_NAME) {
+  //   // 已登录且要跳转的页面是登录页
+  //   next({
+  //     name: 'home' // 跳转到 home 页
+  //   })
+  // } else {
+  //   if (token) {
+  //     next() // 跳转
+  //   } else {
+  //     next({
+  //       name: LOGIN_PAGE_NAME
+  //     })
+  //   }
+  // }
 })
 
 

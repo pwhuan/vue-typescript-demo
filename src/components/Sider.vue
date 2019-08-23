@@ -29,14 +29,14 @@
 
 <script lang="ts">
 import { Component, Vue, Watch } from "vue-property-decorator";
-import { MenuItems } from "@/utils/SiderItem";
+import { MenuItems } from "@/router/SiderItem";
 export default Vue.extend({
   data() {
     return {
       menuItems: [],
       defaultSelectedKeys: ["首页"],
       openKeys: ["首页"],
-      permissions: ["home", "edit-permissions","vueLazyload"]
+      permissions: ["home", "edit-permissions","roles"]
     };
   },
   mounted() {

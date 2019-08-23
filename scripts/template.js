@@ -27,24 +27,18 @@ const VueTep = `<template>
 <script lang="ts" src="./${dirName}.ts"></script>
 
 <style lang="less">
-  @import './${dirName}.less'
+  @import './${dirName}.less';
 </style>
 
 `
 
 // ts 模版
 const tsTep = `import { Component, Vue } from "vue-property-decorator"
-import { Getter, Action } from "vuex-class"
 import { ${capPirName}Data } from '@/types/views/${dirName}.interface.ts'
 // import {  } from "@/components" // 组件
 
 @Component({})
 export default class ${capPirName} extends Vue {
-  // Getter
-  // @Getter ${dirName}.author
-    
-  // Action
-  // @Action GET_DATA_ASYN
 
   // data
   data: ${capPirName}Data = {
@@ -72,7 +66,7 @@ export default class ${capPirName} extends Vue {
 `
 
 // less 模版
-const lessTep = `@import "@/assets/less/variables.less";
+const lessTep = `
 
 .${dirName}-wrap {
   width: 100%;

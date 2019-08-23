@@ -28,6 +28,9 @@ export class MenuItems {
         new MenuItem('权限管理', 'permissions', 'permissions', '', [
             new MenuItem('编辑权限', 'edit-permissions', 'edit-permissions', '/permissions/edit-permissions'),
         ]),
+        new MenuItem('系统管理', 'sys-management', 'sys-management', '', [
+            new MenuItem('角色管理', 'roles', 'roles', '/sys-management/roles'),
+        ]),
         new MenuItem('懒加载', 'vueLazyload', 'vueLazyload', '/vueLazyload'),
 
         // new MenuItem('导航4', 'Pages.Roles', 'local_offer', '/app/roles'),

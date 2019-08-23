@@ -31,6 +31,41 @@ export default [
         }
     },
     {
+        path: '/sys-management',
+        name: "sys-management",
+        component: () => import('@/views/sys-management/sys-management.vue'),
+        meta: {
+            icon: '',
+            isDisable: true,
+            keepAlive: true,
+            title: '系统管理'
+        },
+        children: [
+            {
+                path: 'roles',
+                name: "roles",
+                component: () => import('@/views/sys-management/roles/roles.vue'),
+                meta: {
+                    icon: '',
+                    keepAlive: true,
+                    title: '角色管理'
+                }
+            },
+            {
+                path: 'roles/CreateOrEditRole',
+                name: "CreateOrEditRole",
+                component: () => import('@/views/sys-management/CreateOrEditRole/CreateOrEditRole.vue'),
+                meta: {
+                    icon: '',
+                    keepAlive: true,
+                    title: '添加角色',
+                    select: "角色管理"
+                }
+            }
+
+        ]
+    },
+    {
         path: '/about',
         name: "about",
         component: About,
