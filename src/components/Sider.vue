@@ -70,10 +70,10 @@ export default Vue.extend({
       return _subMenus;
     },
     filterMenus(menus: any) {
-      menus = menus.filter(
-        (f: any) =>
-          this.permissions.indexOf(f.permissionName) >= 0 || f.items.length > 0
-      );
+      // menus = menus.filter(
+      //   (f: any) =>
+      //     this.permissions.indexOf(f.permissionName) >= 0 || f.items.length > 0
+      // );
       return menus;
     },
     getMenus(subMenus: any) {
